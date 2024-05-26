@@ -1,8 +1,26 @@
+import Search from "./components/Search";
+
 export default function App() {
+  const BASE_URL = "https://api.openweathermap.org/data/2.5/";
+  const address = "Boring, Oregon";
+  const handleKeyDown = () => {
+    console.log("handleKeyDown");
+  };
+  const handleSearchClick = () => {
+    console.log("handleSearchClick");
+  };
+  const handleLocationClick = () => {
+    console.log("handleLocationClick");
+  };
   return (
     <main className="flex justify-center items-center bg-gradient-to-br from-sky-600 via-yellow-400 to-green-600 h-[100vh] w-full">
       <h1 className="text-3xl text-slate-800 font-bold underline">
-        Hello World!
+        <Search
+          address={address}
+          handleKeyDown={handleKeyDown}
+          handleSearchClick={handleSearchClick}
+          handleLocationClick={handleLocationClick}
+        />
       </h1>
     </main>
   );
