@@ -1,26 +1,47 @@
+import { useState } from "react";
 import Search from "./components/Search";
 
 export default function App() {
-  const BASE_URL = "https://api.openweathermap.org/data/2.5/";
-  const address = "Boring, Oregon";
-  const handleKeyDown = () => {
-    console.log("handleKeyDown");
-  };
-  const handleSearchClick = () => {
-    console.log("handleSearchClick");
-  };
-  const handleLocationClick = () => {
-    console.log("handleLocationClick");
-  };
+  // Location state
+  const [location, setLocation] = useState({
+    placeId: 0,
+    lat: "0",
+    lon: "0",
+    displayName: "",
+    locationClass: "",
+    locationType: "",
+    importance: 0,
+  });
+
+  // Weather state
+  const [weather, setWeather] = useState({
+    temperature: 0,
+    description: "",
+    windSpeed: 0,
+    windDirection: 0,
+    humidity: 0,
+    pressure: 0,
+    visibility: 0,
+    sunrise: 0,
+    sunset: 0,
+  });
+
+  // Current weather state
+  const [currentWeather, setCurrentWeather] = useState({
+    location,
+    weather,
+  });
+
+  // Saved locations state
+  const [savedLocations, setSavedLocations] = useState([]);
+
+  // Units state
+  const [units, setUnits] = useState("imperial");
+
   return (
     <main className="flex justify-center items-center bg-gradient-to-br from-sky-600 via-yellow-400 to-green-600 h-[100vh] w-full">
       <h1 className="text-3xl text-slate-800 font-bold underline">
-        <Search
-          address={address}
-          handleKeyDown={handleKeyDown}
-          handleSearchClick={handleSearchClick}
-          handleLocationClick={handleLocationClick}
-        />
+        <Search {...location} />
       </h1>
     </main>
   );

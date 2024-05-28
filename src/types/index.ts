@@ -1,9 +1,9 @@
-export type locationType = {
+export type locationPropsType = {
   placeId: number;
   lat: string;
   lon: string;
-  distplayName: string;
-  class: string;
-  type: string;
+  displayName: string;
+  locationClass: string;
+  locationType: string;
   importance: number;
 };
