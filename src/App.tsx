@@ -1,7 +1,19 @@
 import { useState } from "react";
 import Search from "./components/Search";
+import Select from "./components/Select";
+
+const options = [
+  { label: "First", value: 1 },
+  { label: "Second", value: 2 },
+  { label: "Third", value: 3 },
+  { label: "Fourth", value: 4 },
+  { label: "Fifth", value: 5 },
+];
 
 export default function App() {
+  const [value, setValue] = useState<(typeof options)[0] | undefined>(
+    options[0]
+  );
   // Location state
   const [location, setLocation] = useState({
     placeId: 0,
@@ -42,6 +54,9 @@ export default function App() {
     <main className="flex justify-center items-center bg-gradient-to-br from-sky-600 via-yellow-400 to-green-600 h-[100vh] w-full">
       <h1 className="text-3xl text-slate-800 font-bold underline">
         <Search {...location} />
+      </h1>
+      <h1 className="text-3xl text-slate-800 font-bold underline">
+        <Select options={options} value={value} onChange={(o) => setValue(o)} />
       </h1>
     </main>
   );

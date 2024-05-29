@@ -8,8 +8,6 @@ const Search = (location: locationPropsType) => {
   const [results, setResults] = useState([]);
   const [currentLocation, setCurrentLocation] = useState("");
 
-  console.log("location:", location);
-
   const handleSearch = async () => {
     try {
       const data = await getLocationData(addressSearch);
