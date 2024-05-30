@@ -131,17 +131,23 @@ export default function App() {
 
   return (
     <>
-      <FindForm btn={() => FindCity(inputValue, 0)}>
-        <>
-          <input
-            className="peer text-2xl border-b-2 border-white w-9/12 bg-transparent text-white tablet:w-4/12"
-            placeholder="Find your city:"
-            value={inputValue}
-            onChange={handleInputChange}
-            list="cityname"
-          ></input>
-        </>
-      </FindForm>
+      <div className="grid grid-cols-1">
+        <FindForm btn={() => FindCity(inputValue, 0)}>
+          <>
+            <input
+              className="peer text-2xl border-b-2 border-white w-9/12 bg-transparent text-white tablet:w-4/12"
+              placeholder="Find your city:"
+              value={inputValue}
+              onChange={handleInputChange}
+              list="cityname"
+            ></input>
+          </>
+        </FindForm>
+        <h1 className="text-white grid grid-cols-1  place-items-center w-full mx-auto">
+          C/F
+        </h1>
+      </div>
+
       <div className="h-screen tablet:h-fit">
         <div className="grid grid-cols-1 place-items-center w-full mx-auto ">
           <select
