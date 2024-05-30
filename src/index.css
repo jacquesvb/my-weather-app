@@ -9,4 +9,10 @@
     font-family: "Poppins", sans-serif;
     color: white;
   }
+
+  body {
+    background: rgb(68, 64, 60);
+    background: linear-gradient(90deg, #15132d 0%, #262626 100%);
+    /* overflow: hidden; */
+  }
 }
